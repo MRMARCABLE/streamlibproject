@@ -13,4 +13,5 @@ py -3.12 -m venv [Nama Virtual Environment]
 ```
 
 -Download library yang diperlukan saat venv diaktifin
+
 -Run social_media.py
