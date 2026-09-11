@@ -28,11 +28,11 @@ with col1:
     age = st.number_input("Age", min_value=0, value=15)
     academic_level = st.selectbox("Academic Level", ["High School", "Undergraduate","Graduate"])
     avg_daily_usage_hours = st.number_input("Average Daily Usage (Hours)", min_value = 0.0, value = 3.5)
-    most_used_platform = st.selectbox("Platform", ["Facebook","Instagram","LinkedIn","Snapchat, Youtube, Tiktok,Twitter"])
+    most_used_platform = st.selectbox("Platform", ["Facebook","Instagram","LinkedIn","Snapchat", "Youtube", "Tiktok" , "Twitter"])
     sleep_hours_per_night = st.number_input("Sleep Hours / Night", min_value = 0, value = 8)
 
 
-if st.button("Predict health", type="primary"):
+if st.button("Submit", type="primary"):
     input_df = pd.DataFrame([{
         "Gender": gender,
         "Age": age,
