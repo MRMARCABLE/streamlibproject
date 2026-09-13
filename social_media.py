@@ -14,8 +14,8 @@ def load_models():
 
 models = load_models()
 
-model_choice = st.selectbox("Choose a model", list(models.keys()))
-model = models[model_choice]
+model_lr = models["Logistic Regression"]
+model_gbr = models["Gradient Boosting Regressor"]
 
 st.title("Social Media Impact on Health")
 st.write("Fill in the details below to get an estimated mental health impact rating.")
@@ -42,12 +42,9 @@ if st.button("Submit", type="primary"):
         "Sleep_Hours_Per_Night": sleep_hours_per_night,
     }])
 
-    prediction = model.predict(input_df)[0]
+    pred_sentiment = model_lr.predict(input_df)[0]
+    pred_score = model_gbr.predict(input_df)[0]
     with col2:
-        if model_choice == "Logistic Regression":
-            st.success(f"### Predicted sentiment: {prediction}")
-        else:
-            st.success(f"### Predicted score: {prediction:.2f}")
-
-#py -3.12 -m venv bodyperf-env
-#bodyperf-env\Scripts\activate
+            st.subheader("Result")
+            st.success(f"### Predicted sentiment: {pred_sentiment}")
+            st.success(f"### Predicted score: {pred_score:.2f}")
